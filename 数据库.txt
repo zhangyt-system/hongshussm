@@ -1,0 +1,140 @@
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+  `user_id` bigint(32) NOT NULL AUTO_INCREMENT COMMENT '用户id',
+  `username`varchar(32) NOT NULL COMMENT '用户名',
+  `describe` varchar(64) DEFAULT NULL COMMENT '用户描述',
+  PRIMARY KEY (`user_id`)
+)  DEFAULT CHARSET=utf8;
+
+INSERT INTO `user` VALUES ('1','文子','学会独处，发现美，做更美的自己！ ');
+INSERT INTO `user` VALUES ('2', '九懿妈妈','喜欢分享，买到便宜好用的东西就会很开心~');
+INSERT INTO `user` VALUES ('3', 'chennnnn', '学会独处，发现美，做更美的自己！ ');
+INSERT INTO `user` VALUES ('4', '麦初心',  '和宝宝一起成长 ');
+INSERT INTO `user` VALUES ('5', '我是卤蛋宝宝', '粘土手工创意小视频，定期更新呦！ 谢谢小可爱们的关注，爱你们么么哒 ');
+INSERT INTO `user` VALUES ('6', '魏德龙',  '吃早点&训练&23点前睡觉');
+INSERT INTO `user` VALUES ('7', '宅小畔',  '北漂租房党，家居好物疯狂热爱者！ ');
+INSERT INTO `user` VALUES ('8', '少年摄影',  '少年|摄影 ');
+INSERT INTO `user` VALUES ('9', '小肉包',  '✨家有2岁宝宝一枚🧢 🌈萌娃搭配|生活日常|好物推荐 ');
+INSERT INTO `user` VALUES ('10', '防弹少年团',  '一切有关BTS营养内容📝让你看到过去跟今后的防弹💜阿米从2013年5月// 偶尔科普 ');
+INSERT INTO `user` VALUES ('11', '金英焕', '“年度老实人获奖得主” ');
+INSERT INTO `user` VALUES ('12', 'superCar', '汽车|买车|出行|数码工作联系 ');
+INSERT INTO `user` VALUES ('13', '宝妈宝妈', '一名妇产科护士，九岁公主的宝妈。 ');
+INSERT INTO `user` VALUES ('14', '小烦人精', '爱吃 爱玩 爱你の摩羯girl 27studio创始人 ');
+INSERT INTO `user` VALUES ('15', '食之有妹', 'Young Forever  Love Myself ');
+INSERT INTO `user` VALUES ('16', 'winsome', '还没有简介 ');
+INSERT INTO `user` VALUES ('17', '长虹电视', '长虹激光电视官方品牌号 ');
+INSERT INTO `user` VALUES ('18', '迷路', '关于易烊千玺的一切好好爱你 保持距离 ');
+INSERT INTO `user` VALUES ('19', '桑吉吉', '暂时还没有个性签名哦～ ');
+INSERT INTO `user` VALUES ('20', '要积极向上', '空间风格规划师 美食探店| 美 ');
+
+DROP TABLE IF EXISTS `article`;
+CREATE TABLE `article` (
+  `art_id` bigint(32) NOT NULL AUTO_INCREMENT COMMENT '文章id',
+  `art_pic`varchar(255) NOT NULL COMMENT '文章图片',
+  `art_title` varchar(32) DEFAULT NULL COMMENT '文章标题',
+  `art_content` varchar(255) DEFAULT NULL COMMENT '文章内容',
+  `cust_createtime` datetime DEFAULT NULL COMMENT '创建时间',
+  `user_id` bigint(32) NOT NULL COMMENT '用户id',
+constraint article_fk foreign key(user_id) references user(user_id),
+  PRIMARY KEY (`art_id`)
+) DEFAULT CHARSET=utf8;
+
+
+INSERT INTO `article` VALUES ('5', 'http://ci.xiaohongshu.com/f93e95b0-0e48-5020-989b-e7290947a71e?imageView2/2/w/1080/format/jpg#http://ci.xiaohongshu.com/ec6eb5e3-1a46-5b8a-a77b-1b4d31e85989?imageView2/2/w/1080/format/jpg', '
+YOLO | 幸福感往往来源于一杯温热清晨咖啡','幸福感往往来源于一杯温热的Morning Coffee☕️愿今天的你扫除一切烦恼sophiaippoliti','2020-04-18 16:32:42','14');
+
+INSERT INTO `article` VALUES ('21', 'http://ci.xiaohongshu.com/744973fb-27e0-5de3-b6e2-9b0de4663b1e?imageView2/2/w/1080/format/jpg#http://ci.xiaohongshu.com/a3f69eec-5aca-54b0-a861-b9b0166bf068?imageView2/2/w/1080/format/jpg', '
+【好书分享1】♥《云边有个小卖部》张嘉佳','树叶被风吹得轻晃，阳光破碎，蝉声隐匿，像远方的潮水。有朵盛开的云，缓缓滑过山顶，随风飘向天边。刘十三以后才会明白，有些告别，就是最后一面。','2020-04-18 16:32:42','1');
+
+INSERT INTO `article` VALUES ('38', 'http://ci.xiaohongshu.com/3fb20f7b-ff77-5be4-ab00-4c8063aa1507?imageView2/2/w/1080/format/jpg#http://ci.xiaohongshu.com/9f52184e-f83c-5636-82d5-1d3626900504?imageView2/2/w/1080/format/jpg', '
+产后恢复打卡','今天做完产康和老公一起去逛超市啦，这好像是疫情开始的三个月以来我第一次去逛超市，孕期的最后一个月疫情来了老公就把我隔离在家了，除了产检不准出门，接下来就是全国人民一起坐月子，现在一切都基本回归正常啦，开心','2020-04-18 16:32:42','3');
+
+INSERT INTO `article` VALUES ('53', 'http://ci.xiaohongshu.com/8c653011-072b-5dd6-86d8-95956db9f0a5?imageView2/2/w/1080/format/jpg#http://ci.xiaohongshu.com/fab5641f-996e-59fe-98d4-81ca013cb49e?imageView2/2/w/1080/format/jpg', '
+宝宝早教很重要 ‖ 关于如何让宝宝轻松学习英语','相信现在的宝妈宝爸都跟我一样，是比较注重宝宝的早期教育的。我一直觉得宝宝的早期教育很重要，现在很多的小朋友也已经在接受早期教育，我家的自然也不能落后啦！','2020-04-18 16:32:42','2');
+
+INSERT INTO `article` VALUES ('62', 'http://ci.xiaohongshu.com/c3200d9f-922c-53f5-879f-786bd48daf2b?imageView2/2/w/1080/format/jpg#http://ci.xiaohongshu.com/0e785056-a08c-5a5b-ba61-058dd9fb2d81?imageView2/2/w/1080/format/jpg', '
+出去炸街啦……','来珠海好几天了、今天天气不错、出去玩转转、今天珠海的天真是、天好景好','2020-04-18 16:32:42','4');
+
+
+INSERT INTO `article` VALUES ('70', 'http://ci.xiaohongshu.com/ca7fb7a1-0b78-5d11-96fd-1a33fe172e16?imageView2/2/w/1080/format/jpg#http://ci.xiaohongshu.com/f878d23f-0fa8-5b94-a3be-bf2e337675e0?imageView2/2/w/1080/format/jpg', '
+有了米奇榨菜！餐食更有味！','大家都知道食品安全真的至关重要，所以我也是好好了解过才来给各位安利的，这款榨菜是经过6个月的时间自然泡渍，每100g减盐30%以上，因为很多榨菜吃起来就是死咸的味道，这款榨菜就不会有这样的感觉，毕竟经过6次的无死角清洗，吃起来干净又卫生啦。','2020-04-18 16:32:42','5');
+
+
+INSERT INTO `article` VALUES ('71', 'http://ci.xiaohongshu.com/2a6ff6f2-abfc-50ed-aedb-773697d82925?imageView2/2/w/1080/format/jpg#http://ci.xiaohongshu.com/f878d23f-0fa8-5b94-a3be-bf2e337675e0?imageView2/2/w/1080/format/jpg', '
+可以在家做有氧了','真需要谢谢疫情，不然还没有想法在家弄个单车。','2020-04-18 16:32:42','6');
+
+
+INSERT INTO `article` VALUES ('79', 'http://ci.xiaohongshu.com/da224be3-9b74-54cf-826c-9f122e7aeafd?imageView2/2/w/1080/format/jpg#http://ci.xiaohongshu.com/2e894c17-9fed-5460-a6b9-a8f84ae4eb11?imageView2/2/w/1080/format/jpg', '
+低成本的牙齿美白整齐小秘诀！','大家都说牙贴贴了之后牙齿很容易酸，但是我觉得这个因人而异吧，我就不会。第一次贴的时候很容易留口水就是了哈哈哈哈～贴过的人都知道。告诉大家一个省钱的小秘诀就是可以把牙贴一剪为2这样子你就可以得到更多的牙贴啦！','2020-04-18 16:32:42','7');
+
+
+INSERT INTO `article` VALUES ('88', 'http://ci.xiaohongshu.com/8173e52a-6608-5828-a081-40bff5a21d67?imageView2/2/w/1080/format/jpg#http://ci.xiaohongshu.com/24437dd6-cc29-5e41-ab90-040cfebf56f5?imageView2/2/w/1080/format/jpg', '
+上海火车站北广场寻找重庆森林','没有做任何准备没有做头发没有带闪光灯只是在上海火车站北广场吃完晚饭模特微博：一头不会奔跑的鹿','2020-04-18 16:32:42','8');
+
+
+INSERT INTO `article` VALUES ('100', 'http://ci.xiaohongshu.com/7027e733-eefc-58e2-a30c-3254df4cf579?imageView2/2/w/1080/format/jpg#http://ci.xiaohongshu.com/6a7e4f93-7e0c-5e02-9023-54bb575cb6c5?imageView2/2/w/1080/format/jpg', '
+宝宝奶粉怎么选？解锁有机奶粉新选择','众所周知，雅培是全球知名医疗保健公司，作为雅培旗下超高端奶粉的菁挚，一直以来是雅培销售的王牌奶粉，在雅培大力度的投入下，无论是优越成分还是产品质量都更值得信赖，对宝宝身体有着很大的帮助呢～所以，咱们选择奶粉一定要看好了，有机又营养才是咱们的选择～','2020-04-18 16:32:42','9');
+
+
+INSERT INTO `article` VALUES ('110', 'http://ci.xiaohongshu.com/4e891469-a28c-51db-8786-453739801f19?imageView2/2/w/1080/format/jpg#http://ci.xiaohongshu.com/42fd7834-4f93-543f-acd5-3e01ac444256?imageView2/2/w/1080/format/jpg', 'OOTD|复古酷女孩回头率超高穿搭','App Store韩国，不清楚安卓
+
+图2:追防弹少年团必备的软件
+
+1、Weibo：快来关注他们官方微博账号！
+
+2、推特：快来关注他们官方账号！
+
+3、Instagram：
+
+4、脸书：快去关注他们官方账号！有高清美图！
+
+5、TikTok：快去关注他们官方账号！
+
+6、BTSOFFICIALLIGHTSTICK
+
+7、Vlive：看防弹直播
+
+8、Weverse：防弹官咖
+
+9、Weverse Shop：买防弹周边专辑etc','2020-04-18 16:32:42','10');
+
+
+
+INSERT INTO `article` VALUES ('128', 'http://ci.xiaohongshu.com/42fd7834-4f93-543f-acd5-3e01ac444256?imageView2/2/w/1080/format/jpg#http://ci.xiaohongshu.com/4e891469-a28c-51db-8786-453739801f19?imageView2/2/w/1080/format/jpg', 'OOTD|复古酷女孩回头率超高穿搭','上衣：黑色紧身背心裙子：格子短裙鞋子：马丁博士马丁靴发圈：肥肠发圈包包：古驰墨镜和行李箱颜色呼应今日份酷女孩了','2020-04-18 16:32:42','11');
+
+INSERT INTO `article` VALUES ('137', 'http://ci.xiaohongshu.com/dc38fa37-e6c9-5b5e-ab9e-ee228b9fa219?imageView2/2/w/1080/format/jpg#http://ci.xiaohongshu.com/e616962e-7696-57b0-aff9-c1173e7e4a42?imageView2/2/w/1080/format/jpg', '麦当劳年度年度新品重磅测评！5G麦麦脆汁鸡','麦当劳年度年度新品重磅测评！5G麦麦脆汁鸡试吃报告来喽我是一颗糖让你生活中多一点甜听说麦当劳4月又暗搓搓的搞大事了！5G麦麦脆汁鸡我已经第一时间来到沈阳第一家麦当劳我吃了20多年的北行店拿到了它“超大一桶”麦麦脆','2020-04-18 16:32:42','12');
+
+
+INSERT INTO `article` VALUES ('148', 'http://ci.xiaohongshu.com/843719d4-6d85-59fd-872d-92fba858acfc?imageView2/2/w/1080/format/jpg#http://ci.xiaohongshu.com/e076cf73-210e-531c-bcbe-bad66cd13352?imageView2/2/w/1080/format/jpg', '面包培训～面包烤不好的10个原因找到了','韩式裱花培训丨烘焙教程丨家庭版烘焙配方丨里永蛋糕培训丨烘焙培训学校丨学烘焙丨学面包丨蛋糕培训丨私房蛋糕丨千层蛋糕教程丨烘焙培训丨欧包培训丨豆沙系裱花丨蛋糕配色丨裱花蛋糕培训','2020-04-18 16:32:42','13');
+
+INSERT INTO `article` VALUES ('159', 'http://ci.xiaohongshu.com/cad4def3-f93b-58f7-b95e-6cd975413e45?imageView2/2/w/1080/format/jpg#http://ci.xiaohongshu.com/02d06335-71a4-5bd4-b6ee-054c53a36a2f?imageView2/2/w/1080/format/jpg', 'LM SOELLE 由内至外散发至美光芒','FUSION MEDICAL旗下护肤品牌品牌积极布局全球市场目前已在新加坡、香港、澳门、深圳拥有独立运营中心以研发高效便捷的护肤产品为品牌目标LM SOELLE不仅通过实力产品为亚洲女性开启雪肌焕白新篇章','2020-04-18 16:32:42','15');
+
+INSERT INTO `article` VALUES ('167', 'http://ci.xiaohongshu.com/6627e168-0768-5899-8f21-0a305f28ad7b?imageView2/2/w/1080/format/jpg', '初中三年你要这么做！','初一1、从小学到初中的心理转变初二1、找到适合自己的学习节奏初三1、 一轮复习很重要的，初中三年的知识点必须梳理清楚','2020-04-18 16:32:42','16');
+
+INSERT INTO `article` VALUES ('176', 'http://ci.xiaohongshu.com/294f3e2a-ddbe-5ccf-b7e3-ae8b9782eaab?imageView2/2/w/1080/format/jpg', '长虹Q2 Pro星辰灰版，现已加入投影豪华阵容','一人，一公寓，一投影，一冰箱的水果这是多少人梦寐以求的神仙日子！其中扮演着影音娱乐中心重要角色的投影仪，当然必须要不偏色、超清晰、更智能，性价比第一名。长虹Q2 Pro投影仪，升级版1080P高清AI投影，完成你神仙日子这张拼图的理想之选，欢迎了解！','2020-04-18 16:32:42','17');
+
+
+INSERT INTO `article` VALUES ('186', 'http://ci.xiaohongshu.com/2e3a5585-fd53-59fb-8ec1-61b3bafceacc?imageView2/2/w/1080/format/jpg#http://ci.xiaohongshu.com/e37272b2-28d8-5065-8048-d7017e2790b5?imageView2/2/w/1080/format/jpg', '自制咖啡｜在家自制6款特调高颜值饮品','泡沫咖啡也叫400次咖啡，是最近好火的一款咖啡，其实做法很简单。黑咖啡粉、细砂糖、水按1:1:1的比例搅拌融化，再用打蛋器打发至奶油霜质地；杯里放入冰块，倒入牛奶，再把打好的泡沫咖啡倒在牛奶上面就可以啦～最后还可以撒些可可粉，用饼干和饼干棒装饰一下。！','2020-04-18 16:32:42','18');
+
+
+INSERT INTO `article` VALUES ('197', 'http://ci.xiaohongshu.com/9b9ecfa2-cdbb-57d7-862c-3e4d539d8413?imageView2/2/w/1080/format/jpg#http://ci.xiaohongshu.com/ac4b405a-5269-5383-8b99-37e3581137d7?imageView2/2/w/1080/format/jpg', '笑笑推荐|晨起最佳伴侣咖啡+爬爬','蓝色裙+上衣 Chanel早餐餐桌椅 Papacoccinella (爬爬)咖啡杯 Dior','2020-04-18 16:32:42','19');
+
+INSERT INTO `article` VALUES ('207', 'http://ci.xiaohongshu.com/e93b8be9-bff1-5d59-9f40-19a0b5b8bd37?imageView2/2/w/1080/format/jpg#http://ci.xiaohongshu.com/a90cfe00-7d84-587a-a35a-3788329f3649?imageView2/2/w/1080/format/jpg', '奈雪的茶牛油果','好早之前就看到奈雪的牛油果很好喝今天看到我的账号突然有一张生日券好开心！然后我就点单了一杯霸气冰激凌牛油果不得不说奈雪的茶 爱您！！！太好喝了！救命！快去和你的好朋友一起喝吧','2020-04-18 16:32:42','20');
+
+
+
+http://localhost:8000/hongshu/getlist  拿到首页数据
+
+select * from article a  left join user u on a.'user_id' = u.'user_id';
+select * from article a left join (select * from user u where a.'art_id' = 19) on a.'user_id' = u.'user_id';
+SELECT
+		 u.`user_id` uid,
+		 u.`username`,
+		 u.`describe`,
+		 a.`art_id`,
+		 a.`art_pic`,
+		 a.`art_title`,
+		 a.`art_content`,
+		 a.`cust_createtime`
+		FROM `user` u
+		left JOIN `article` a ON u.`user_id`= a.`user_id` group by u.`user_id`	
