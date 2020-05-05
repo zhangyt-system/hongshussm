@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hongshu.mapper.UserMapper">	
+<resultMap type="com.hongshu.pojo.User" id="user_article_map">
+		<id column="user_id" property="uid" />
+		<result column="username" property="username"/>
+		<result column="describe" property="describe"/>
+		<collection property="article" ofType="com.hongshu.pojo.Article">
+			<id property="art_id" column="art_id" />
+			<result property="user_id" column="user_id"/>
+			<result property="art_pic" column="art_pic"/>
+			<result property="art_title" column="art_title"/>
+			<result property="art_content" column="art_content"/>
+			<result property="cust_createtime" column="cust_createtime"/>
+		</collection>
+	</resultMap>
+	<select id="getIndexList" resultMap="user_article_map">
+		SELECT
+		 u.`user_id` uid,
+		 u.`username`,
+		 u.`describe`,
+		 a.`art_id`,
+		 a.`art_pic`,
+		 a.`art_title`,
+		 a.`art_content`,
+		 a.`cust_createtime`
+		FROM `user` u
+		left JOIN `article` a ON u.`user_id`= a.`user_id` group by u.`user_id`	
+	</select>
+</mapper>

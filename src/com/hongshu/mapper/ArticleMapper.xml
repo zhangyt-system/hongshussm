@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace：命名空间，用于隔离sql语句，后继有重要重要 #{}：点位符，相当于jdbc的? ${}：字符串拼接指令，如果入参为普通数据类型{}内部只写value -->
+<!-- 动态代理开发规则： 1、namespace必需是接口的全路径名 2、接口的方法名必需与sql id 一致 3、接口的入参与parameterType类型一致 
+	4、接口的返回值必须与resultType类型一致 -->
+<mapper namespace="com.hongshu.mapper.ArticleMapper">
+		<!-- id:sql id，语句的唯一标识 parameterType:入参的数据类型 resultType:返回结果的数据类型 -->
+	<select id="getArticleById" parameterType="int" resultType="com.hongshu.pojo.Article">
+		SELECT
+		`art_id`,
+		`art_pic`,
+		`art_title`,
+		`art_content`,
+		`cust_createtime`
+		FROM `article`
+		WHERE art_id = #{art_id2}
+	</select>
+	
+</mapper>
